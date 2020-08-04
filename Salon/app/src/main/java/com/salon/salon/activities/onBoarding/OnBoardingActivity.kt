@@ -27,7 +27,7 @@ class OnBoardingActivity : AppCompatActivity() {
      * may be best to switch to a
      * [android.support.v4.app.FragmentStatePagerAdapter].
      */
-    private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
+    private var mSectionsPagerAdapter: SectionsPagerAdapter? = null //
     private var page = 0
     var onBoardingViewPager: ViewPager? = null
     var onBoardingPresenter= OnBoardingPresenter(this)
