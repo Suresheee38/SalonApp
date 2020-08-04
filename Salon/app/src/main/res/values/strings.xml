@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Salon</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="next">Next</string>
+    <string name="googleSignIn">Connect with Google</string>
+    <string name="faceBookSignIn">Connect with Facebook</string>
+    <string name="signUpText">DON\'T HAVE AN ACCOUNT? SIGN UP</string>
+    <string name="signInText">LOG IN</string>
+    <string name="signUpSpanText">SIGN UP</string>
+</resources>

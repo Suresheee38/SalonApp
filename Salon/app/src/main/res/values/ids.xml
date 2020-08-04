@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="customSpinner" type="id"/>
+    <item name="customEditText" type="id"/>
+    <item name="customButton" type="id"/>
+</resources>
