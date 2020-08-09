@@ -10,40 +10,77 @@
         android:id="@+id/logInContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
-            android:background="@mipmap/ic_launcher"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:background="@mipmap/ic_launcher" />
+
         <LinearLayout
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginStart="30dp"
-            android:orientation="vertical"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="50dp"
-            android:layout_gravity="bottom">
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="editTextUserName"
+                android:hint="PhoneNumber"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:weightSum="1.0"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextOTP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="editTextOTP"
+                    android:hint="Enter the otp"
+                    android:layout_weight="0.75"
+                    android:inputType="textPassword"
+                    android:padding="10dp" />
+
+                <Button
+                    android:id="@+id/getOtpButton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:text="Get OTP"/>
+            </LinearLayout>
+
             <Button
-                android:visibility="gone"
+                android:id="@+id/buttonSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="buttonSubmit"
+                android:text="@string/signInText" />
+
+            <Button
                 android:id="@+id/logInGoogleButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text= "@string/googleSignIn"/>
+                android:text="@string/googleSignIn"
+                android:visibility="gone" />
+
             <Button
-                android:visibility="gone"
                 android:id="@+id/logInFaceBookButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/logInGoogleButton"
-                android:text= "@string/faceBookSignIn"/>
-
-            <Button
-                android:id="@+id/logInButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/logInFaceBookButton"
-                android:text= "@string/signInText"/>
+                android:text="@string/faceBookSignIn"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/signInTextView"
@@ -51,8 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/logInFaceBookButton"
                 android:padding="10dp"
-                android:textColor="@android:color/white"
-                android:text= "@string/signUpText"/>
+                android:text="@string/signUpText"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </FrameLayout>
 
