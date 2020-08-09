@@ -8,4 +8,9 @@
     <string name="signUpText">DON\'T HAVE AN ACCOUNT? SIGN UP</string>
     <string name="signInText">LOG IN</string>
     <string name="signUpSpanText">SIGN UP</string>
+    <string name="phoneNumberAlreadyRegisteredMessage">Phone number is already registered</string>
+    <string name="signUpSuccessMessage">Logged in Successful</string>
+    <string name="signInSuccessMessage">Successfully Signed Up</string>
+    <string name="enterPhoneNumberMessage">Please enter valid phone number</string>
+    <string name="enterAllFields">Please enter all fields</string>
 </resources>

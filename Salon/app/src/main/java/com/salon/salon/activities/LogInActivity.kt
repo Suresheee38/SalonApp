@@ -1,5 +1,6 @@
 package com.salon.salon.activities
 
+import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -46,10 +47,11 @@ class LogInActivity : AppCompatActivity(), View.OnClickListener, StringClickable
             if(it.second == null) {
                 if(it.first?.code() == 409) {
                     //Existing user
-                    Toast.makeText(this, "Phone number is already registered", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, resources.getString(R.string.phoneNumberAlreadyRegisteredMessage), Toast.LENGTH_LONG).show()
                 } else {
                     //Success signed up
-                    Toast.makeText(this, "Successfully Signed Up", Toast.LENGTH_LONG).show()
+                    signUpFragment.dismiss()
+                    Toast.makeText(this, resources.getString(R.string.signUpSuccessMessage), Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -57,7 +59,6 @@ class LogInActivity : AppCompatActivity(), View.OnClickListener, StringClickable
 
     override fun onClick(p0: View?) {
         val phoneNumber = logInbinding.editTextPhoneNumber.text.toString()
-
         when (p0) {
             logInbinding.getOtpButton -> {
                 if (logInPresenter.shouldGetOtp(phoneNumber)) {
@@ -68,7 +69,7 @@ class LogInActivity : AppCompatActivity(), View.OnClickListener, StringClickable
                         }
                     }
                 } else {
-                    Toast.makeText(this@LogInActivity, "Please enter valid phone number", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LogInActivity, resources.getString(R.string.enterAllFields), Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -76,8 +77,7 @@ class LogInActivity : AppCompatActivity(), View.OnClickListener, StringClickable
                 val otpValue = logInbinding.editTextOTP.text.toString()
                 if (logInPresenter.canProceedToSubmit(phoneNumber, otpValue)) {
                     logInPresenter.signIn(phoneNumber, otpValue) { response: Response<SignInResponse>?, t: SError? ->
-                        if (t == null) {
-                            Toast.makeText(this@LogInActivity, "Sign in Success", Toast.LENGTH_SHORT).show()
+                        response?.body()?.let {  Toast.makeText(this@LogInActivity, resources.getString(R.string.signInSuccessMessage), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
