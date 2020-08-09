@@ -8,15 +8,12 @@ import com.salon.salon.api.responses.SignUpResponse
 import com.salon.salon.custom.ValueType
 import com.salon.salon.extensions.isEmailValid
 import com.salon.salon.extensions.isValidPhoneNumber
-import com.salon.salon.interfaces.MainViewSignUpAndLogIn
-import com.salon.salon.interfaces.SignUpAndLoginPresenterInterface
 import retrofit2.Response
 
-class SignUpPresenter(private val mainViewInterface: MainViewSignUpAndLogIn? = null): SignUpAndLoginPresenterInterface {
+class SignUpPresenter() {
 
     var signUpResponse: Response<SignUpResponse>? = null
     var failureResponse: SError? = null
-    val mainView: MainViewSignUpAndLogIn? =  mainViewInterface
 
     enum class TextFieldType {
         PHONE_NUMBER,
@@ -25,12 +22,6 @@ class SignUpPresenter(private val mainViewInterface: MainViewSignUpAndLogIn? = n
         CITY,
         STATE,
         COUNTRY
-    }
-
-    //Interface to handle click events and set result back to main view
-
-    override fun clickedToShowToast() {
-        mainView?.showToast()
     }
 
     private fun composeParams(parameters: HashMap<String, String>): HashMap<String, HashMap<String, String>> {
