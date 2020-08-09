@@ -1,23 +1,22 @@
 package com.salon.salon.presenters
 import com.google.gson.Gson
 import com.salon.salon.api.ResultType
-import com.salon.salon.api.RetrofitWrapper
 import com.salon.salon.api.SError
 import com.salon.salon.api.WebServiceManager
-import com.salon.salon.api.interfaces.ApiInterface
-import com.salon.salon.api.responses.SignUpResponse
 import com.salon.salon.api.requests.SignUp
+import com.salon.salon.api.responses.SignUpResponse
 import com.salon.salon.custom.ValueType
 import com.salon.salon.extensions.isEmailValid
 import com.salon.salon.extensions.isValidPhoneNumber
-import retrofit2.Call
+import com.salon.salon.interfaces.MainViewSignUpAndLogIn
+import com.salon.salon.interfaces.SignUpAndLoginPresenterInterface
 import retrofit2.Response
-import kotlin.reflect.jvm.internal.impl.types.ErrorType
 
-class SignUpPresenter() {
+class SignUpPresenter(private val mainViewInterface: MainViewSignUpAndLogIn? = null): SignUpAndLoginPresenterInterface {
 
     var signUpResponse: Response<SignUpResponse>? = null
     var failureResponse: SError? = null
+    val mainView: MainViewSignUpAndLogIn? =  mainViewInterface
 
     enum class TextFieldType {
         PHONE_NUMBER,
@@ -26,6 +25,12 @@ class SignUpPresenter() {
         CITY,
         STATE,
         COUNTRY
+    }
+
+    //Interface to handle click events and set result back to main view
+
+    override fun clickedToShowToast() {
+        mainView?.showToast()
     }
 
     private fun composeParams(parameters: HashMap<String, String>): HashMap<String, HashMap<String, String>> {
